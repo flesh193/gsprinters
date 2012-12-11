@@ -1,0 +1,10 @@
+"AddonInfo"
+{
+	"name"				"gsprinters"
+	"version"			"1.1"
+	"up_date"			"00/00/00"
+	"author_name"			"KoZ"
+	"author_url"			"http://www.beskor.net/"
+	"info"				"DarkRP Gemstone Money Printers"
+	"override"			"0"
+}
