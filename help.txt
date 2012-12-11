@@ -1,0 +1,3 @@
+How to install:
+Paste the following code into your addentities.lua; http://pastebin.com/0AbAVmvg
+Paste the following code at the bottom of your DarkRP config.lua; http://pastebin.com/ZF1MsrdV
