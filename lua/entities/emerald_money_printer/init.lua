@@ -8,7 +8,7 @@ function ENT:Initialize()
 	self:PhysicsInit(SOLID_VPHYSICS)
 	self:SetMoveType(MOVETYPE_VPHYSICS)
 	self:SetSolid(SOLID_VPHYSICS)
-	self:SetColor(Color(0,112,60,255))
+	self:SetColor(Color(0, 112, 60, 255))
 	local phys = self:GetPhysicsObject()
 	if phys:IsValid() then phys:Wake() end
 	self.sparking = false
