@@ -2,10 +2,21 @@
 	The Diamond Printer is a test printer with control over the rate at which it explodes.
 	Add the following to your config.lua;
 	
-	-- Diamond Test Printer
+	-- Diamond Print Control
 	GM.Config.diaprintamount				= 20
 	GM.Config.diaexplodechance				= 300
-	GM.Config.diatimer						= 1
+	GM.Config.diatimer						= 10
+	
+	Add the follow to your addentities.lua;
+	
+	-- Diamond Printer Entity
+	AddEntity("Diamond Printer", {
+		ent = "diamond_money_printer",
+		model = "models/props_c17/consolebox01a.mdl",
+		price = 2000,
+		max = 2,
+		cmd = "/buydiamond"
+	})
 */
 
 AddCSLuaFile("cl_init.lua")
@@ -91,17 +102,8 @@ function ENT:CreateMoneybag()
 	if self:IsOnFire() then return end
 	local MoneyPos = self:GetPos()
 	local X = GAMEMODE.Config.diaexplodechance
-	if amount == 0 then
-		amount = 300
-	end
 	local Y = GAMEMODE.Config.diaprintamount
-	if amount == 0 then
-		amount = 20
-	end
 	local Z = GAMEMODE.Config.diatimer
-	if amount == 0 then
-		amount = 10
-	end
 	if math.random(1, X) == 3 then self:BurstIntoFlames() end
 	local amount = self:GetNWInt("PrintA") + Y
 	self:SetNWInt("PrintA",amount)
