@@ -3,9 +3,9 @@
 	Add the following to your config.lua;
 	
 	-- Diamond Test Printer
-	GM.Config.diaprintamount			= 20
-	GM.Config.diaexplodechance			= 300
-	GM.Config.diatimer					= 10
+	GM.Config.diaprintamount				= 20
+	GM.Config.diaexplodechance				= 300
+	GM.Config.diatimer						= 1
 */
 
 AddCSLuaFile("cl_init.lua")
@@ -98,7 +98,7 @@ function ENT:CreateMoneybag()
 	if amount == 0 then
 		amount = 20
 	end
-	local timer = GAMEMODE.Config.diatimer
+	local Z = GAMEMODE.Config.diatimer
 	if amount == 0 then
 		amount = 10
 	end
@@ -106,5 +106,5 @@ function ENT:CreateMoneybag()
 	local amount = self:GetNWInt("PrintA") + Y
 	self:SetNWInt("PrintA",amount)
 	self.sparking = false
-	timer.Simple(timer, function() PrintMore(self) end)
+	timer.Simple(Z, function() PrintMore(self) end)
 end
