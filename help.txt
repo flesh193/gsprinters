@@ -1,3 +1,45 @@
 How to install:
-Paste the following code into your addentities.lua; http://pastebin.com/0AbAVmvg
-Paste the following code at the bottom of your DarkRP config.lua; http://pastebin.com/ZF1MsrdV
+
+Place contents of gsprinter-master.zip into your addons folder.
+
+Then open your addentities.lua and place the following code into the bottom of the file;
+
+AddEntity("Topaz Printer", {
+        ent = "topaz_money_printer",
+        model = "models/props_c17/consolebox01a.mdl",
+        price = 1000,
+        max = 2,
+        cmd = "/buytopaz"
+})
+ 
+AddEntity("Amethyst Printer", {
+        ent = "amethyst_money_printer",
+        model = "models/props_c17/consolebox01a.mdl",
+        price = 1500,
+        max = 2,
+        cmd = "/buyamethyst"
+})
+ 
+AddEntity("Emerald Printer", {
+        ent = "emerald_money_printer",
+        model = "models/props_c17/consolebox01a.mdl",
+        price = 2500,
+        max = 2,
+        cmd = "/buyemerald"
+})
+ 
+AddEntity("Ruby Printer", {
+        ent = "ruby_money_printer",
+        model = "models/props_c17/consolebox01a.mdl",
+        price = 5000,
+        max = 2,
+        cmd = "/buyruby"
+})
+ 
+AddEntity("Sapphire Printer", {
+        ent = "sapphire_money_printer",
+        model = "models/props_c17/consolebox01a.mdl",
+        price = 7500,
+        max = 2,
+        cmd = "/buysapphire"
+})
