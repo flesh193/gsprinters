@@ -10,7 +10,7 @@ function ENT:Draw()
 	local Ang = self:GetAngles()
 	
     local owner = self.dt.owning_ent
-	owner = (IsValid(owner) and owner:Nick()) or "Disconnected"
+	owner = (IsValid(owner) and owner:Nick()) or "unknown"
 	
 	txt1 = "Amethyst Printer"
 	txt2 = "$" ..self:GetNWInt("PrintA")
