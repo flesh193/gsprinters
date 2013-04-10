@@ -5,7 +5,7 @@ How to install:
 
 1) Place contents of gsprinters-master.zip into your addons folder.
 
-2) Ppen your addentities.lua and place the following code into the bottom of the file;
+2) Open your addentities.lua and place the following code into the bottom of the file;
 
 AddEntity("Topaz Printer", {
         ent = "topaz_money_printer",
