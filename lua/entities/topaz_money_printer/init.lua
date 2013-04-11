@@ -15,7 +15,6 @@ function ENT:Initialize()
 	self:SetColor(Color(242, 207, 107, 255))
 	local phys = self:GetPhysicsObject()
 	if phys:IsValid() then phys:Wake() end
-	self.sparking = false
 	self.damage = 100
 	self.IsMoneyPrinter = true
 	timer.Simple(1.0, function() PrintMore(self) end)
@@ -56,7 +55,7 @@ function ENT:BurstIntoFlames()
 end
 
 function ENT:Fireball()
-	if not self:IsOnFire() then return end
+	if not self:IsOnFire() then self.burningup = false return end
 	local dist = math.random(20, 280) -- Explosion radius
 	self:Destruct()
 	for k, v in pairs(ents.FindInSphere(self:GetPos(), dist)) do
@@ -69,14 +68,6 @@ PrintMore = function(ent)
 	if IsValid(ent) then
 		ent.sparking = true
 		timer.Simple(1.0, function() ent:CreateMoneybag() end)
-	end
-end
-
-function ENT:Use(activator)
-	if(activator:IsPlayer()) and self:GetNWInt("PrintA") >= 1 then
-	activator:AddMoney(self:GetNWInt("PrintA"));
-	GAMEMODE:Notify(activator, 1, 4, "You have collected $"..self:GetNWInt("PrintA").." from a Topaz Printer.")
-	self:SetNWInt("PrintA",0)
 	end
 end
 
@@ -93,4 +84,12 @@ function ENT:CreateMoneybag()
 	self:SetNWInt("PrintA",amount)
 	self.sparking = false
 	timer.Simple(math.random(10, 15), function() PrintMore(self) end)
+end
+
+function ENT:Use(activator)
+	if(activator:IsPlayer()) and self:GetNWInt("PrintA") >= 1 then
+	activator:AddMoney(self:GetNWInt("PrintA"));
+	GAMEMODE:Notify(activator, 1, 4, "You have collected $"..self:GetNWInt("PrintA").." from a Topaz Printer.")
+	self:SetNWInt("PrintA",0)
+	end
 end
